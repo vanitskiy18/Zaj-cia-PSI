@@ -1,0 +1,286 @@
+# Kilka uwag o programowaniu w R
+# Nazwy zmiennych mogą zawierać: litery, cyfry, podkreślnik, kropkę.
+# Wielkość liter ma znaczenie. „A” i „a” oznaczają dla R co innego.
+
+# Komentarze w R można wprowadzać po znaku # 
+# po tym znaku R ignoruje całą treść – aż do końca linijki
+
+# RStudio to zintegrowane środowisko programistyczne (IDE) dla R. Zawiera konsolę, edytor kodu 
+# i podświetlania składni, okno do wizualizacji wyników oraz narzędzia do zarządzania obszarem
+# roboczym. Najnowsza wersja jest do pobrania: https://posit.co/download/rstudio-desktop/
+
+# Przydatne materiały:
+# Elementarz programisty: wstęp do programowania używając R - Jakub Nowosad
+# https://jakubnowosad.com/elp/
+
+# An(other) introduction to R - Felix Lennert
+# https://bookdown.org/f_lennert/introduction-to-r/
+
+
+# R jako kalkulator - podstawowe działania
+1+4+8			#dodawanie
+187672-11297     	#odejmowanie
+10*10    		#mnożenie
+12/10    		#dzielenie
+12%%10    		#reszta z dzielenia
+12%/%10    		#część całkowita z dzielenia
+3^3   			#potęgowanie
+121^(2/4)     		#pierwiastkowanie
+
+Wbudowane funkcje arytmetyczne
+sqrt(16)     		#pierwiastek kwadratowy
+abs(-10)     		#moduł z liczby
+factorial(8)     		#silnia
+
+# Struktury danych w R
+• Wektor - seria danych jednego typu.
+• Macierz - seria wektorów jednego typu.
+• Ramka danych (data frame) - seria wektorów różnych typów (analogicznie jak tabelka w Excelu).
+
+# Co to jest wektor
+# Wektor jest najprostszą, a jednocześnie najważniejszą, strukturą w środowisku R. Może zawierać
+# liczby, ciągi znaków (np. podpisy do danych), jak również dane logiczne (prawda lub fałsz). 
+# Jeden wektor zawiera dane tylko jednego typu - albo liczby, albo ciągi znaków, albo dane logiczne.
+
+# Tworzenie wektora
+# Wektory można tworzyć na wiele sposobów. Najczęściej używa się operatora konkatenacji c()
+
+# Definiowanie wektora 5-elementowego z użyciem c():
+wektor1 = c(1,4,10,2,15)
+# Ważne: wpisanie nazwy wcześniej utworzonego wektora pozwala wyświetlić go w konsoli:
+wektor1
+
+
+
+# Operator pomocniczy ':' utworzy rosnący ciąg liczb z krokiem 1:
+wektor2_r = 1:5
+wektor2_r
+# lub malejący:
+wektor2_m = 5:1
+wektor2_m
+
+
+
+# Operator sekwencji seq() pozwala utworzyć ciąg liczb w danym zakresie. Parametr ‘by’ określa krok:
+wektor3 = seq(1, 100, by=2)
+wektor3
+
+
+
+# Operator rep() pozwala utworzyć wektor z powtarzających się ciągów liczb. 
+# Parametr ‘times’ określa liczbę powtórzeń serii:
+wektor4 = rep(1:4, times = 2)
+wektor4
+
+# Parametr ‘each’ określa liczbę powtórzeń każdej z liczby. 
+# Utwórz poniższe wektory i przeanalizuj różnice między nimi:
+wektor5 = rep(1:4, each = 2)
+wektor6 = rep(1:4, c(2,2,2,2))
+wektor7 = rep(1:4, c(2,1,2,1))
+
+# Parametr ‘len’ określa długość wektora.
+Utwórz poniższe wektory i przeanalizuj sposób ich tworzenia oraz różnice między nimi.
+wektor8  = rep(1:4, each = 2, len = 6)    
+wektor9  = rep(1:4, each = 2, len = 8)
+wektor10 = rep(1:4, each = 2, times = 3)
+# Działania na wektorach
+# Na wektorach można wykonywać działania oraz podstawowe funkcje. 
+# Utwórz przykładowe wektory x i y
+x = c(2,4,5)
+y = c(1,3,2)
+
+# Wykonaj działania na wektorach:
+x+2
+3*y
+x+y+2  # Pod warunkiem, że oba wektory są tej samej długości
+x*y       # Pod warunkiem, że oba wektory są tej samej długości
+
+# Wybrane funkcje operujące na wektorach
+max() 		- maksymalna wartość z wektora
+min() 		- minimalna wartość
+mean() 		- średnia arytmetyczna
+sum() 		- suma elementów wektora
+length() 	- liczba elementów w wektorze
+median() 	- mediana
+prod() 		- iloczyn elementów wektora
+
+
+
+# Zadania wektory 1
+
+
+# Zadanie 1. Utwórz 8-elementowy wektor A, który zawiera cyfry od 1 do 8. 
+# Utwórz 8-elementowy wektor B, który zawiera ciąg cyfr od 0 do 1 powtórzony czterokrotnie.
+```{r}
+wektorA<-1:8
+wektorB<-rep(0:1, times=4)
+
+# Zadanie 2. Dodaj do siebie dwa wektory: A i B.
+wektorA+wektorB
+# Zadanie 3. Pomnóż wektor B przez liczbę 5.
+wektorB*5
+# Zadanie 4. Odejmij od wektora A liczbę 3.
+wektorA-3
+# Zadanie 5. W wyniku dokonania pomiarów technicznych otrzymujesz następujące 
+# wyniki: 4.3, 4, 5, 4.6, 4.1, 3.8, 3, 2.9, 4, 5.1, 4. Zapisz wyniki w wektorze pomiary.
+pomiary<-c(4.3,4,5,4.6,4.1,3.8,3,2.9,4,5.1,4)
+
+# Zadanie 6. Podaj liczbę elementów w wektorze pomiary za pomocą odpowiedniej funkcji.
+length(pomiary)
+# Zadanie 7. Podaj sumę elementów w wektorze pomiary za pomocą odpowiedniej funkcji.
+sum(pomiary)
+# Zadanie 8. Podaj najmniejszą wartość pomiaru z wektora pomiary za pomocą odpowiedniej funkcji.
+min(pomiary)
+# Zadanie 9. Podaj największą wartość pomiaru z wektora pomiary za pomocą odpowiedniej funkcji.
+max(pomiary)
+# Zadanie 10. Oblicz średnią arytmetyczną liczb w wektorze pomiary za pomocą odpowiedniej funkcji
+mean(pomiary)
+```
+
+
+# Odwoływanie się do elementów wektora - indeksowanie wektorów
+# Indeksowanie wektorów jest czynnością̨, w której odnosimy się do konkretnych elementów
+# wektora, stanowiących podzbiór całości. W wyniku indeksowania otrzymuje się również wektor,
+# jednak jest on krótszy, gdyż zawiera elementy wybrane z większego wektora.
+ 
+# Ważne: elementy wektora numerowane są od liczby 1.
+
+# Dany jest wektor:
+W = c(8, 8, 1, -24, -15, -6, 79, 4)
+
+w[2]		#wybierz tylko drugi element wektora w
+w[-2] 		#wybierz wszystkie oprócz drugiego elementu
+w[c(1,3,6)] 	#wybierz pierwszy, trzeci i szósty element
+w[c(1,5)] 	#wybierz pierwszy i piąty element
+w[c(1:5)]	#wybierz kolejno pięć pierwszych elementów
+w[-(5:8)]	#wybierz wszystkie oprócz elementów kolejno od 5 do 8
+w[w>0] 	#wybierz elementy większe od zera
+
+# Wbudowane wektory
+# Wiele przydatnych wektorów jest wbudowanych w R, np. nazwy miesięcy lub litery alfabetu:
+month.name
+LETTERS
+letters
+
+# Ćwiczenie. Wybierz z wektora LETTERS elementy od 5 do 10.
+LETTERS[5:10]
+
+# Ćwiczenie. Wybierz z wektora LETTERS elementy 1 i 2 oraz od 9 do 14.
+LETTERS[c(1, 2, 9:14)]
+
+# Ćwiczenie. Korzystając z seq() zbuduj sekwencję liter złożoną z co drugiej litery wektora LETTERS:
+LETTERS[seq(from = 1, to = length(LETTERS), by = 2)]
+
+# Alternatywnie – można utworzyć zmienną “co_druga”, w której przechowamy “długą komendę”:
+co_druga = seq(from = 1, to = length(LETTERS), by = 2)
+LETTERS[co_druga] 
+
+# Nazywanie elementów wektora
+
+# Metoda 1. Utwórz wektor, następnie nazwij jego elementy funkcją names()
+xyz = c(12, 18, 10) 
+names(xyz) = c("first","second","third")
+xyz[c("second")] 		# wybierz konkretny element wektora poprzez nazwę tego elementu
+
+# Metoda 2. Nazwij elementy wektora w momencie jego tworzenia
+wartosc = c(przychod = 6100, dochod = 5000, podatek_proc = 22, region = 5, rejon = 9) 
+
+# Do nazwanych elementów wektora można się odwoływać po ich nazwach
+wartosc[c("dochod", "podatek_proc")] 
+# Zmiana kolejności elementów w wektorze
+# Odwrócenie kolejności elementów w wektorze
+wartosc[5:1]
+
+# Korzystanie z warunków logicznych
+# Wybierz wszystkie elementy wektora, które mają wartość mniejszą od 100
+wartosc[wartosc<100]
+
+# Zmiana elementów wektora
+# Zmiana wartości czwartego i piątego elementu wektora:
+wartosc[c(4,5)] = c(11,7) 
+wartosc
+
+# Dodawanie nowych elementów do wektora
+wartosc = c(wartosc, kod.kraju = 1)
+wartosc
+
+# Połączenie dwóch wektorów
+# Wektory można połączyć ze sobą za pomocą operatora konkatenacji c()
+A = c(1,2)
+B = c(3,4)
+
+C = c(A,B)
+
+polaczony = c(xyz, wartosc)
+
+# Wektory znakowe
+# Wektor może zawierać ciągi znaków (tekst). 
+serial = c("Westworld", "Black mirror", "Stranger things", "Suits", "House of Cards", "The Strain")
+
+# Wybierz element drugi wektora serial
+serial[2]
+
+# Wybierz elementy od trzeciego do piątego wektora serial
+serial[3:5]
+
+# Wybierz elementy od pierwszego do trzeciego oraz element szósty wektora serial
+serial[c(1:3, 6)]
+
+# Dodaj nowy element do wektora serial
+serial[7]= "Game of Thrones"
+
+# Zmień wartość elementu piątego wektora serial
+serial[5]= "House M.D." 
+# Zadania wektory 2
+```{r}
+# Zadanie 1. Stwórz wektor o nazwie "wyprzedaz" z 4 elementami, które są następującymi
+# wartościami liczbowymi: 1, 5, 8, 10.
+wyprzedaz<-c(1,5,8,10)
+# Zadanie 2. Nazwij kolejne elementy wektora "wyprzedaz": uszczelki, nakretki, sprezyny, gwozdzie.
+names(wyprzedaz)<-c('uszczelki','nakretki','sprzezyny','gwozdzie')
+# Zadanie 3. Stwórz wektor "inwentaryzacja", który wybiera pierwszy i trzeci element wektora
+# "wyprzedaz" poprzez odwołanie do ich nazw.
+inwentaryzacja<-wyprzedaz[c('uszczelki','nakretki')]
+# Zadanie 4. Twoje czasy dojazdu do pracy przez ostatnie dwa tygodnie (10 dni roboczych) w min. to:
+# 17 16 20 24 22 15 21 15 17 22. Jaki był najdłuższy, średni i minimalny czasy dojazdu?
+czas<-c(17,16,20,24,22,15,21,15,17,22)
+najdluzszy<-max(c)
+sredni<-mean(c)
+
+
+# Zadanie 5. Utwórz 10-elementowy wektor C, który zawiera cyfry 4 i 5 (każda powtórzona
+# pięciokrotnie). Utwórz 6-elementowy wektor D, który zawiera ciąg cyfr od 1 do 6.
+# Połącz wektor C i D w jeden wektorCD za pomocą operatora konkatenacji c(). 
+wektorC<-rep(4:5, times=5)
+wektorD<-1:6
+wektorCD=c(wektorC,wektorD)
+# Zadanie 6. Wybierz (wyświetl w konsoli):
+# a) 10-ty element wektora wektorCD 
+wektorCD[10]
+# b) 16-ty element wektora wektorCD 	
+wektorCD[16]
+# Zadanie 7. Wybierz (wyświetl w konsoli):
+# a) elementy 1, 2, 3, 4, 5, 6, 7 wektora wektorCD
+wektorCD[c(1:7)]
+# b) elementy 2, 6 i 11 wektora wektorCD		
+wektorCD[c(2,6,11)]
+# Zadanie 8. Stwórz wektor waga zawierający pomiary wagi pacjentów 60,72,57,90,95 oraz wektor
+# wzrost zawierający pomiary wzrostu pacjentów 1.72 , 1.80 , 1.65 , 1.90 , 1.74.
+wektorw<-c(60,72,57,90,95)
+wektorwz<-c(1.72,1.80,1.65,1.90,1.74)
+# a)	Oblicz wskaźnik BMI pacjentów. BMI = waga / (wzrost)2
+BMI<-sum(wektorw)/(sum(wektorwz)**2)
+# b)	Zsumuj elementy wektora waga i podziel przez liczbę elementów tego wektora.
+srednia_waga<-sum(wektorw)/length(wektorw)
+#	Wynik przypisz do wektora srednia_waga.
+# c)	Oblicz średnią wektora waga za pomocą funkcji mean().
+mean(wektorw)
+# Zadanie 9. Utwórz wektor znakowy FILMY z trzema dowolnymi tytułami filmów.
+FILMY<-c('Avengers','Spider-Man','Iron-man')
+# a) Wybierz z wektora FILMY elementy 1 i 3.
+FILMY(c(1,3))
+# b) Dodaj do wektora FILMY czwarty tytuł filmu.
+FILMY[4]='Ant-Man'
+```
+
+
