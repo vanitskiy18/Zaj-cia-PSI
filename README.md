@@ -1,13 +1,13 @@
 # 📊 Information Systems Engineering
 
-!\[R](https://img.shields.io/badge/R-276DC3?style=for-the-badge\&logo=r\&logoColor=white)
-!\[HTML](https://img.shields.io/badge/HTML-Reports-E34F26?style=for-the-badge\&logo=html5\&logoColor=white)
-!\[Data Science](https://img.shields.io/badge/Data\_Science-Analysis-blue?style=for-the-badge)
-!\[Text Mining](https://img.shields.io/badge/Text\_Mining-Analysis-orange?style=for-the-badge)
-!\[University of Warsaw](https://img.shields.io/badge/University\_of\_Warsaw-Coursework-red?style=for-the-badge)
-!\[Status](https://img.shields.io/badge/Status-Completed-success?style=for-the-badge)
+![R](https://img.shields.io/badge/R-276DC3?style=for-the-badge&logo=r&logoColor=white)
+![HTML](https://img.shields.io/badge/HTML_Report-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![Data Science](https://img.shields.io/badge/Data_Science-Analysis-blue?style=for-the-badge)
+![Text Mining](https://img.shields.io/badge/Text_Mining-Analysis-orange?style=for-the-badge)
+![University of Warsaw](https://img.shields.io/badge/University_of_Warsaw-Coursework-red?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Completed-success?style=for-the-badge)
 
-\---
+---
 
 ## 📖 About
 
@@ -17,7 +17,7 @@ The course introduced practical data science and text mining techniques using **
 
 The repository contains exercises and reports covering the complete workflow from basic data processing to sentiment analysis, text clustering, topic modeling, word associations, and TF-IDF.
 
-\---
+---
 
 ## 🎯 Topics Covered
 
@@ -36,7 +36,7 @@ The coursework includes:
 * Word association analysis
 * TF-IDF
 
-\---
+---
 
 ## 📂 Repository Structure
 
@@ -62,7 +62,7 @@ information-systems-engineering/
 
 Each directory contains materials and reports related to a particular topic covered during the course.
 
-\---
+---
 
 ## 🔍 Selected Topics
 
@@ -100,7 +100,7 @@ Exploration of relationships and co-occurrence patterns between words in textual
 
 Application of **Term Frequency–Inverse Document Frequency (TF-IDF)** to measure the importance of words within documents and document collections.
 
-\---
+---
 
 ## 🛠 Technologies
 
@@ -131,7 +131,7 @@ Application of **Term Frequency–Inverse Document Frequency (TF-IDF)** to measu
 * Git
 * GitHub
 
-\---
+---
 
 ## 📚 Course Notes
 
@@ -139,7 +139,7 @@ The repository also contains course notes covering theoretical concepts and meth
 
 They are available in the `Course Notes` directory.
 
-\---
+---
 
 ## 🚀 Final Course Project
 
@@ -160,7 +160,7 @@ The complete project, including source code, datasets, documentation, and the ge
 
 [**ChatGPT vs Gemini Reviews Analysis**](https://github.com/vanitskiy18/chatgpt-vs-gemini-reviews-analysis)
 
-\---
+---
 
 ## 🎓 Educational Context
 
@@ -168,7 +168,7 @@ The repository documents my work throughout the **Projektowanie Systemów Inform
 
 The coursework provided practical experience in applying data science and natural language processing techniques to textual data and served as preparation for the final **ChatGPT vs Gemini Reviews Analysis** project.
 
-\---
+---
 
 ## 👨‍💻 Author
 
